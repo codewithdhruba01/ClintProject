@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ArrowRight } from 'lucide-react';
+
+const categoriesData = [
+  { id: 'portrait', label: 'PORTRAIT PHOTOGRAPHY', image: '/assets/glitch_3.png', count: '01' },
+  { id: 'lifestyle', label: 'LIFESTYLE & BRANDING', image: '/assets/asthetic.jpg', count: '02' },
+  { id: 'engagement', label: 'ENGAGEMENT & WEDDINGS', image: '/assets/wadding2.jpg', count: '03' },
+  { id: 'family', label: 'FAMILY & NEWBORN', image: '/assets/wadding1.jpg', count: '04' },
+];
 
 const FeaturedWorks: React.FC = () => {
   const logos = ['Livestorm', 'Pitch', 'Courier', 'Almanac', 'Appsheet'];
-  
+  const [activeCategory, setActiveCategory] = useState(categoriesData[1]); // Default to Lifestyle
+
   return (
     <>
       <div className="logo-bar">
@@ -18,15 +27,28 @@ const FeaturedWorks: React.FC = () => {
           <div className="works-sidebar">
             <div className="works-label">(WORKS) PORTFOLIO PHOTOGRAPHY PREVIEW</div>
             <div className="categories">
-              <div className="category">PORTRAIT PHOTOGRAPHY</div>
-              <div className="category active">→ LIFESTYLE & BRANDING</div>
-              <div className="category">ENGAGEMENT & WEDDINGS</div>
-              <div className="category">FAMILY & NEWBORN</div>
+              {categoriesData.map((cat) => (
+                <div
+                  key={cat.id}
+                  className={`category ${activeCategory.id === cat.id ? 'active' : ''}`}
+                  onClick={() => setActiveCategory(cat)}
+                >
+                  {activeCategory.id === cat.id && (
+                    <ArrowRight className="category-arrow" size={24} />
+                  )}
+                  {cat.label}
+                </div>
+              ))}
             </div>
           </div>
           <div className="works-hero-img">
-            <img src="/assets/story_featured.png" alt="Main Work" />
-            <div className="img-count">[02]</div>
+            <img
+              key={activeCategory.image}
+              src={activeCategory.image}
+              alt={activeCategory.label}
+              className="fade-in"
+            />
+            <div className="img-count">[{activeCategory.count}]</div>
           </div>
         </div>
       </section>
@@ -86,21 +108,39 @@ const FeaturedWorks: React.FC = () => {
           opacity: 1;
           transform: translateX(10px);
         }
+         .category-arrow {
+          margin-right: 10px;
+          color: var(--pure-white);
+        }
+        .fade-in {
+          animation: fadeIn 0.8s ease forwards;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(1.02); }
+          to { opacity: 1; transform: scale(1); }
+        }
         .works-hero-img {
           position: relative;
+          overflow: hidden;
         }
         .works-hero-img img {
           width: 100%;
           height: 600px;
           object-fit: cover;
+          transition: transform 0.8s ease;
+        }
+        .works-hero-img:hover img {
+          transform: scale(1.05);
         }
         .img-count {
           position: absolute;
-          bottom: 0px;
-          right: 0px;
+          bottom: 20px;
+          right: 20px;
           font-size: 14px;
           font-weight: 600;
-          padding: 10px;
+          background: rgba(0,0,0,0.5);
+          padding: 8px 12px;
+          backdrop-filter: blur(5px);
         }
       `}</style>
     </>
