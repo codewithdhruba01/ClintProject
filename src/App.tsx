@@ -8,15 +8,21 @@ import Stories from './components/Stories';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import { useStore } from './store/useStore';
 
 const App: React.FC = () => {
+  const { setActiveSection } = useStore();
+
   useEffect(() => {
-    const observerOptions = { threshold: 0.1 };
+    const observerOptions = { threshold: 0.3 };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
+          
+          if (entry.target.id) {
+            setActiveSection(entry.target.id);
+          }
         }
       });
     }, observerOptions);
