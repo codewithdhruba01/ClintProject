@@ -2,11 +2,11 @@ import React from 'react';
 
 const GlitchGallery: React.FC = () => {
   const images = [
-    '/assets/glitch_1.png',
+    '/assets/asthetic.jpg',
     '/assets/glitch_2.png',
     '/assets/glitch_3.png',
     '/assets/glitch_4.png',
-    '/assets/glitch_5.png',
+    '/assets/wadding1.jpg',
   ];
 
   return (
