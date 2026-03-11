@@ -39,9 +39,10 @@ const Footer: React.FC = () => {
       </div>
       <style>{`
         .footer {
-          background-color: var(--pitch-black);
-          color: var(--pure-white);
+          background-color: var(--bg-color);
+          color: var(--text-color);
           padding-top: 60px;
+          border-top: 1px solid var(--border-color);
         }
         .footer-contact-bar {
           display: flex;
