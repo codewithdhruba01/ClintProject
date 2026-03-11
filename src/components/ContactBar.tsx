@@ -120,6 +120,7 @@ const ContactBar: React.FC = () => {
           .contact-arrow { margin: 0 20px; }
         }
         @media (max-width: 768px) {
+          .contact-bar { padding: 50px 0; }
           .contact-flex {
             flex-direction: column;
             gap: 20px;
@@ -130,6 +131,21 @@ const ContactBar: React.FC = () => {
           }
           .contact-email {
             margin-right: 0;
+            font-size: 28px;
+            word-break: break-all;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .contact-bar { padding: 40px 0; }
+          .contact-label { font-size: 12px; }
+          .contact-email {
+            font-size: 22px;
+            letter-spacing: -0.5px;
+          }
+          .contact-status {
+            width: 44px;
+            height: 44px;
           }
         }
       `}</style>

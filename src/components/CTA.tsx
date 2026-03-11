@@ -71,6 +71,20 @@ const CTA: React.FC = () => {
           color: #000000;
           transform: scale(1.05);
         }
+
+        @media (max-width: 600px) {
+          .cta {
+            min-height: 400px;
+            padding: 40px 20px;
+          }
+          .cta-content { width: 100%; }
+          .cta-title { margin-bottom: 20px; }
+          .cta-subtitle { margin-bottom: 30px; font-size: 10px; }
+          .cta-btn {
+            padding: 14px 32px;
+            font-size: 12px;
+          }
+        }
       `}</style>
     </section>
   );

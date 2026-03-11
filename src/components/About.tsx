@@ -65,6 +65,23 @@ const About: React.FC = () => {
           color: var(--text-color);
           font-weight: 800;
         }
+
+        @media (max-width: 768px) {
+          .about { padding: 50px 0; }
+          .about-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+          }
+          .about-text p {
+            font-size: 16px;
+            line-height: 1.4;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .about { padding: 40px 0; }
+          .about-text p { font-size: 15px; }
+        }
       `}</style>
     </section>
   );

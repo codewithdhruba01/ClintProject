@@ -90,15 +90,6 @@ const App: React.FC = () => {
         )}
       </main>
       <Footer />
-      <style>{`
-        @media (max-width: 768px) {
-          .hero-images { flex-wrap: wrap; }
-          .about-grid { grid-template-columns: 1fr; }
-          .works-layout { grid-template-columns: 1fr; }
-          .stories-grid { grid-template-columns: 1fr; }
-          .testimonial-content { flex-direction: column; }
-        }
-      `}</style>
     </div>
   );
 };

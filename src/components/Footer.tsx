@@ -314,17 +314,52 @@ const Footer: React.FC = () => {
         }
 
         @media (max-width: 1024px) {
+          .zen-footer { padding: 60px 0 40px; }
           .footer-top-row { flex-direction: column; align-items: stretch; }
           .newsletter-title { text-align: left; }
           .newsletter-input-group { min-width: auto; }
-          .footer-mid-row { grid-template-columns: 1fr; }
+          .footer-mid-row {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding: 40px 0;
+          }
           .cta-title { font-size: 48px; }
         }
 
         @media (max-width: 640px) {
-          .footer-nav-grid { grid-template-columns: 1fr 1fr; }
-          .bottom-left, .bottom-right { flex-direction: column; gap: 10px; }
-          .footer-bottom-row { flex-direction: column; gap: 30px; text-align: center; align-items: center; }
+          .container { padding: 0 20px; }
+          .zen-footer { padding: 50px 0 30px; }
+          .footer-top-row { margin-bottom: 40px; gap: 24px; }
+          .cta-title { font-size: 32px; }
+          .cta-desc { font-size: 16px; }
+          .footer-button-box { justify-content: stretch; }
+          .accent-btn { justify-content: center; }
+          .footer-mid-row { padding: 30px 0; gap: 30px; }
+          .brand-name { font-size: 22px; }
+          .brand-contacts { gap: 12px; }
+          .footer-nav-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+          }
+          .nav-column h4 { font-size: 14px; margin-bottom: 16px; }
+          .nav-column ul li a { font-size: 13px; }
+          .footer-bottom-row {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+            align-items: center;
+            padding: 24px 0;
+            font-size: 12px;
+          }
+          .bottom-left, .bottom-right {
+            flex-direction: column;
+            gap: 8px;
+          }
+          .footer-bg-text { font-size: 12vw; bottom: 80px; }
+        }
+
+        @media (max-width: 400px) {
+          .footer-nav-grid { grid-template-columns: 1fr; }
         }
       `}</style>
     </footer>

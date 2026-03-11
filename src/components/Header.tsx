@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStore } from '../store/useStore';
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const { activeSection, setActiveSection, isDarkMode, toggleDarkMode, currentView, setView } = useStore();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (mobileMenuOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileMenuOpen]);
 
   const handleNavClick = (href: string) => {
+    setMobileMenuOpen(false);
     if (href === '#home') {
       setView('home');
       setActiveSection('home');
@@ -42,6 +50,9 @@ const Header: React.FC = () => {
 
   return (
     <header className="header">
+      {mobileMenuOpen && (
+        <div className="nav-overlay" onClick={() => setMobileMenuOpen(false)} aria-hidden="true" />
+      )}
       <nav className="nav">
         <div className="nav-container">
           <div className="nav-logo" onClick={() => handleNavClick('#home')}>
@@ -49,7 +60,15 @@ const Header: React.FC = () => {
             <span className="logo-text">ANTON PHOTO</span>
           </div>
 
-          <ul className="nav-list">
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          <ul className={`nav-list ${mobileMenuOpen ? 'open' : ''}`}>
             {navItems.map((item) => (
               <li key={item.name}>
                 <button 
@@ -130,6 +149,14 @@ const Header: React.FC = () => {
         .nav-list li a:hover, .nav-btn-link:hover {
           color: var(--accent-color);
         }
+        .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          color: var(--text-color);
+          cursor: pointer;
+          padding: 8px;
+        }
         .theme-toggle {
           background: none;
           border: none;
@@ -145,6 +172,44 @@ const Header: React.FC = () => {
         .theme-toggle:hover {
           background: var(--border-color);
           color: var(--accent-color);
+        }
+
+        @media (max-width: 900px) {
+          .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 998;
+          }
+          .nav-list {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--header-bg);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            padding: 80px 30px 30px;
+            gap: 20px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            z-index: 999;
+          }
+          .nav-list.open {
+            transform: translateX(0);
+          }
+          .mobile-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .nav-container { padding: 0 16px; }
+          .logo-text { font-size: 14px; }
         }
       `}</style>
     </header>

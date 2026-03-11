@@ -82,6 +82,34 @@ const Stories: React.FC = () => {
         .story-card.large img {
           height: 600px;
         }
+
+        @media (max-width: 900px) {
+          .stories { padding: 50px 0; }
+          .section-title { font-size: 28px; margin-bottom: 40px; }
+          .stories-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+          }
+          .story-card.large {
+            grid-column: 1 / -1;
+            grid-row: auto;
+          }
+          .story-card.large img { height: 350px; }
+          .story-card img { height: 250px; }
+        }
+
+        @media (max-width: 600px) {
+          .stories { padding: 40px 0; }
+          .section-title { font-size: 22px; margin-bottom: 30px; padding: 0 16px; }
+          .stories-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0;
+          }
+          .story-card img, .story-card.large img { height: 280px; }
+          .story-date { padding-bottom: 30px; }
+          .date-value { font-size: 18px; }
+        }
       `}</style>
     </section>
   );
