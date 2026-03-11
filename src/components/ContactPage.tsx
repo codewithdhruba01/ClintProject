@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, User, PhoneCall, Plus, Minus, Send, Check } from 'lucide-react';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
@@ -8,13 +9,28 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
     <div className={`faq-item ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
       <div className="faq-question">
         <span>{question}</span>
-        {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+        </motion.div>
       </div>
-      {isOpen && (
-        <div className="faq-answer fade-in">
-          <p>{answer}</p>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+            style={{ overflow: 'hidden' }}
+          >
+            <div className="faq-answer">
+              <p>{answer}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
