@@ -7,6 +7,8 @@ interface AppState {
   toggleNav: () => void;
   isDarkMode: boolean;
   toggleDarkMode: () => void;
+  currentView: 'home' | 'contact';
+  setView: (view: 'home' | 'contact') => void;
 }
 
 export const useStore = create<AppState>((set) => ({
@@ -16,4 +18,6 @@ export const useStore = create<AppState>((set) => ({
   toggleNav: () => set((state) => ({ isNavOpen: !state.isNavOpen })),
   isDarkMode: false,
   toggleDarkMode: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
+  currentView: 'home',
+  setView: (view) => set({ currentView: view }),
 }));

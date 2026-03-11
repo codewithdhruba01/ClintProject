@@ -3,7 +3,35 @@ import { useStore } from '../store/useStore';
 import { Moon, Sun } from 'lucide-react';
 
 const Header: React.FC = () => {
-  const { activeSection, setActiveSection, isDarkMode, toggleDarkMode } = useStore();
+  const { activeSection, setActiveSection, isDarkMode, toggleDarkMode, currentView, setView } = useStore();
+
+  const handleNavClick = (href: string) => {
+    if (href === '#home') {
+      setView('home');
+      setActiveSection('home');
+      window.scrollTo(0, 0);
+    } else if (href === '#contact') {
+      setView('contact');
+    } else {
+      // For #works, #about - only work on home view
+      if (currentView !== 'home') {
+        setView('home');
+        // Small delay to allow home content to render before scrolling
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      setActiveSection(href.slice(1));
+    }
+  };
 
   const navItems = [
     { name: 'HOME', href: '#home' },
@@ -19,13 +47,12 @@ const Header: React.FC = () => {
           <ul className="nav-list">
             {navItems.map((item) => (
               <li key={item.name}>
-                <a 
-                  href={item.href} 
-                  className={activeSection === item.href.slice(1) ? 'active' : ''}
-                  onClick={() => setActiveSection(item.href.slice(1))}
+                <button 
+                  className={`nav-btn-link ${ (currentView === 'contact' && item.href === '#contact') || (currentView === 'home' && activeSection === item.href.slice(1)) ? 'active' : ''}`}
+                  onClick={() => handleNavClick(item.href)}
                 >
                   {item.name}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
@@ -64,16 +91,22 @@ const Header: React.FC = () => {
           flex: 1;
           justify-content: center;
         }
-        .nav-list li a {
+        .nav-list li a, .nav-btn-link {
           font-size: 13px;
           font-weight: 600;
           letter-spacing: 1px;
           color: var(--text-muted);
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+          font-family: inherit;
+          transition: var(--transition-smooth);
         }
-        .nav-list li a.active {
+        .nav-list li a.active, .nav-btn-link.active {
           color: var(--text-color);
         }
-        .nav-list li a:hover {
+        .nav-list li a:hover, .nav-btn-link:hover {
           color: var(--accent-color);
         }
         .theme-toggle {

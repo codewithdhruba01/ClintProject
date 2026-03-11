@@ -10,9 +10,10 @@ import CTA from './components/CTA';
 import ContactBar from './components/ContactBar';
 import Footer from './components/Footer';
 import { useStore } from './store/useStore';
+import ContactPage from './components/ContactPage';
 
 const App: React.FC = () => {
-  const { setActiveSection, isDarkMode } = useStore();
+  const { setActiveSection, isDarkMode, currentView } = useStore();
 
   useEffect(() => {
     if (isDarkMode) {
@@ -23,37 +24,45 @@ const App: React.FC = () => {
   }, [isDarkMode]);
 
   useEffect(() => {
-    const observerOptions = { threshold: 0.3 };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          
-          if (entry.target.id) {
-            setActiveSection(entry.target.id);
+    if (currentView === 'home') {
+      const observerOptions = { threshold: 0.3 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            
+            if (entry.target.id) {
+              setActiveSection(entry.target.id);
+            }
           }
-        }
-      });
-    }, observerOptions);
+        });
+      }, observerOptions);
 
-    const elements = document.querySelectorAll('.reveal-on-scroll, .hero-img-card, .story-card, .cta, .contact-bar');
-    elements.forEach(el => observer.observe(el));
+      const elements = document.querySelectorAll('.reveal-on-scroll, .hero-img-card, .story-card, .cta, .contact-bar');
+      elements.forEach(el => observer.observe(el));
 
-    return () => observer.disconnect();
-  }, []);
+      return () => observer.disconnect();
+    }
+  }, [currentView, setActiveSection]);
 
   return (
     <div className="app">
       <Header />
       <main>
-        <Hero />
-        <GlitchGallery />
-        <About />
-        <FeaturedWorks />
-        <Stories />
-        <Testimonials />
-        <CTA />
-        <ContactBar />
+        {currentView === 'home' ? (
+          <>
+            <Hero />
+            <GlitchGallery />
+            <About />
+            <FeaturedWorks />
+            <Stories />
+            <Testimonials />
+            <CTA />
+            <ContactBar />
+          </>
+        ) : (
+          <ContactPage />
+        )}
       </main>
       <Footer />
       <style>{`
