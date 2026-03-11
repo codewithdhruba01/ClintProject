@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, User, PhoneCall, Plus, Minus, Check } from 'lucide-react';
+import { InstagramIcon, XIcon, LinkedinIcon } from './icons/SocialIcons';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,14 +84,26 @@ const ContactPage: React.FC = () => {
                     <input type="email" placeholder="Enter your email" required />
                   </div>
                   <div className="input-row">
-                    <User size={18} className="input-icon" />
-                    <input type="text" placeholder="Business name" />
-                  </div>
-                  <div className="input-row">
                     <Phone size={18} className="input-icon" />
                     <input type="tel" placeholder="Phone number" required />
                   </div>
+                  <div className="input-row textarea-row">
+                    <Mail size={18} className="input-icon" />
+                    <textarea placeholder="Write your message here..." rows={4} required></textarea>
+                  </div>
                   <button type="submit" className="redesign-submit">Submit</button>
+
+                  <div className="form-social-icons">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="form-social-btn" aria-label="Instagram">
+                      <InstagramIcon size="20" />
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="form-social-btn" aria-label="X">
+                      <XIcon size="20" />
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="form-social-btn" aria-label="LinkedIn">
+                      <LinkedinIcon size="20" />
+                    </a>
+                  </div>
                 </form>
               )}
             </div>
@@ -302,6 +315,43 @@ const ContactPage: React.FC = () => {
         .redesign-submit:hover {
           transform: translate(-2px, -2px);
           box-shadow: 8px 8px 0px var(--text-color);
+        }
+
+        .form-social-icons {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          margin-top: 40px;
+          padding-top: 30px;
+          border-top: 1px solid var(--border-color);
+        }
+        .form-social-btn {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          border: 3px solid var(--text-color);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--bg-color);
+          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          color: var(--text-color);
+          text-decoration: none;
+        }
+        .form-social-btn:hover {
+          transform: translateY(-5px) scale(1.1);
+          background: #f8bc05ff !important;
+          box-shadow: 6px 6px 0px var(--text-color);
+          border-color: var(--text-color) !important;
+        }
+        .form-social-btn svg {
+          color: inherit;
+          display: block;
+          transition: transform 0.3s ease;
+        }
+        .form-social-btn:hover svg {
+          color: #000 !important;
+          transform: scale(1.1);
         }
 
         /* Office Section */
