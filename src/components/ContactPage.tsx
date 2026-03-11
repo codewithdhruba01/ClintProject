@@ -10,10 +10,11 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
       <div className="faq-question">
         <span>{question}</span>
         <motion.div
+          className="faq-icon-circle"
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+          {isOpen ? <Minus size={14} strokeWidth={3} /> : <Plus size={14} strokeWidth={3} />}
         </motion.div>
       </div>
       <AnimatePresence>
@@ -53,7 +54,7 @@ const ContactPage: React.FC = () => {
 
   return (
     <div className="contact-page-v2">
-      {/* Hero Section */}
+      {/* massage Section */}
       <section className="contact-hero">
         <div className="hero-grid-bg"></div>
         <div className="container center-text">
@@ -126,10 +127,11 @@ const ContactPage: React.FC = () => {
 
       {/* FAQ Section */}
       <section className="faq-section">
+        <div className="faq-vertical-lines"></div>
         <div className="container small-container">
           <div className="center-text">
             <div className="label-badge-alt">WHAT DO YOU WANT YO KNOW?</div>
-            <h2 className="section-title-redesign">Frequently asked questions</h2>
+            <h2 className="faq-title">Frequently asked questions</h2>
           </div>
 
           <div className="faq-list">
@@ -152,7 +154,7 @@ const ContactPage: React.FC = () => {
           padding: 0 5%;
         }
         .small-container {
-          max-width: 800px;
+          max-width: 550px;
         }
         .center-text {
           text-align: center;
@@ -192,7 +194,7 @@ const ContactPage: React.FC = () => {
         /* Hero / Form */
         .contact-hero {
           position: relative;
-          padding: 100px 0;
+          padding: 60px 0;
           overflow: hidden;
         }
         .hero-grid-bg {
@@ -297,17 +299,19 @@ const ContactPage: React.FC = () => {
 
         /* Office Section */
         .office-section {
-          padding: 100px 0;
+          padding: 60px 0;
         }
         .section-title-redesign {
           font-size: clamp(30px, 4vw, 48px);
           line-height: 1.2;
-          margin-bottom: 60px;
+          margin-bottom: 40px;
         }
         .office-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 30px;
+          max-width: 1000px;
+          margin: 0 auto;
         }
         .info-card {
           background: var(--bg-color);
@@ -341,40 +345,80 @@ const ContactPage: React.FC = () => {
 
         /* FAQ Section */
         .faq-section {
-          padding: 100px 0;
+          padding: 60px 0;
+          position: relative;
+          background: #fff;
+        }
+        .faq-vertical-lines {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, #f0f0f0 1px, transparent 1px);
+          background-size: 15% 100%;
+          opacity: 0.5;
+          pointer-events: none;
+        }
+        .faq-title {
+          font-size: clamp(32px, 5vw, 56px);
+          line-height: 1.1;
+          font-weight: 800;
+          margin-bottom: 40px;
+          color: #1a1e2e;
+          text-transform: none;
         }
         .faq-list {
           display: flex;
           flex-direction: column;
-          gap: 15px;
-          margin-top: 50px;
+          gap: 20px;
+          max-width: 550px;
+          margin: 50px auto 0;
+          position: relative;
+          z-index: 1;
         }
         .faq-item {
-          border: 2px solid var(--text-color);
-          border-radius: 12px;
-          padding: 20px 30px;
+          border: 3px solid #000;
+          border-radius: 16px;
+          padding: 24px 32px;
           cursor: pointer;
-          transition: all 0.3s ease;
-          background: var(--bg-color);
-          box-shadow: 0 4px 0 var(--text-color);
+          transition: all 0.2s ease;
+          background: #fff;
+          box-shadow: 6px 6px 0px #000;
         }
         .faq-item.open {
           background: #fff4af;
-          color: #000;
+        }
+        .faq-item:hover {
+          transform: translate(-2px, -2px);
+          box-shadow: 8px 8px 0px #000;
         }
         .faq-question {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          font-weight: 700;
-          font-size: 16px;
+          font-weight: 800;
+          font-size: 18px;
+          color: #1a1e2e;
+        }
+        .faq-icon-circle {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          border: 2px solid #000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #fff;
+          color: #000;
         }
         .faq-answer {
-          margin-top: 20px;
-          padding-top: 20px;
-          border-top: 1px solid rgba(0,0,0,0.1);
+          margin-top: 15px;
           line-height: 1.6;
           font-weight: 500;
+          color: #444;
+          font-size: 15px;
+          padding-right: 40px;
         }
 
         .success-overlay {
