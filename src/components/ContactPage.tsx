@@ -57,7 +57,7 @@ const ContactPage: React.FC = () => {
               ) : (
                 <form className="redesign-form" onSubmit={handleSubmit}>
                   <h3 className="form-inner-title">Send us a Message</h3>
-                   <div className="input-row">
+                  <div className="input-row">
                     <User size={18} className="input-icon" />
                     <input type="text" placeholder="Enter your name" required />
                   </div>
@@ -113,7 +113,7 @@ const ContactPage: React.FC = () => {
         <div className="container small-container">
           <div className="center-text">
             <div className="label-badge-alt">WHAT DO YOU WANT YO KNOW?</div>
-            <h2 className="section-title-redesign">Some of the most frequently<br />asked questions</h2>
+            <h2 className="section-title-redesign">Frequently asked questions</h2>
           </div>
 
           <div className="faq-list">
