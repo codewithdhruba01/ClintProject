@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
           position: relative;
           padding: 60px 0 40px;
           text-align: center;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid var(--border-color);
           overflow: hidden;
         }
         .hero-title {

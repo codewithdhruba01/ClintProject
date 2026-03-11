@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&display=swap');
 
 :root {
-  /* Colors */
+  /* Colors - Light Mode */
   --bg-color: #ffffff;
   --text-color: #000000;
   --text-muted: #666666;
   --accent-color: #ff3b30;
   --pitch-black: #000000;
   --pure-white: #ffffff;
+  --border-color: #eeeeee;
+  --header-bg: rgba(255, 255, 255, 0.9);
   
   /* Typography */
   --font-primary: 'Outfit', sans-serif;
@@ -15,6 +17,17 @@
   
   /* Transitions */
   --transition-smooth: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dark {
+  --bg-color: #0a0a0a;
+  --text-color: #ffffff;
+  --text-muted: #999999;
+  --accent-color: #ff3b30;
+  --pitch-black: #ffffff;
+  --pure-white: #000000;
+  --border-color: #000000;
+  --header-bg: rgba(10, 10, 10, 0.9);
 }
 
 * {

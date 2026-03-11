@@ -12,7 +12,7 @@ const About: React.FC = () => {
       <style>{`
         .about {
           padding: 80px 0;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid var(--border-color);
         }
         .about-grid {
           display: grid;

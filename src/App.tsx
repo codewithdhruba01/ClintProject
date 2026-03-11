@@ -12,7 +12,15 @@ import Footer from './components/Footer';
 import { useStore } from './store/useStore';
 
 const App: React.FC = () => {
-  const { setActiveSection } = useStore();
+  const { setActiveSection, isDarkMode } = useStore();
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
 
   useEffect(() => {
     const observerOptions = { threshold: 0.3 };

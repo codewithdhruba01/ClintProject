@@ -35,8 +35,8 @@ const Stories: React.FC = () => {
       </div>
       <style>{`
         .stories {
-          background-color: var(--pitch-black);
-          color: var(--pure-white);
+          background-color: #000000;
+          color: #ffffff;
           padding: 80px 0;
         }
         .section-title {

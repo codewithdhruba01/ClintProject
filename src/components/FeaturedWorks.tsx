@@ -56,7 +56,7 @@ const FeaturedWorks: React.FC = () => {
       <style>{`
         .logo-bar {
           padding: 30px 0;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid var(--border-color);
         }
         .logo-flex {
           display: flex;
@@ -69,8 +69,8 @@ const FeaturedWorks: React.FC = () => {
           font-weight: 700;
         }
         .featured-works {
-          background-color: var(--pitch-black);
-          color: var(--pure-white);
+          background-color: #000000;
+          color: #ffffff;
           padding: 60px 0;
         }
         .works-layout {
@@ -110,7 +110,7 @@ const FeaturedWorks: React.FC = () => {
         }
          .category-arrow {
           margin-right: 10px;
-          color: var(--pure-white);
+          color: #ffffff;
         }
         .fade-in {
           animation: fadeIn 0.8s ease forwards;

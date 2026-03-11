@@ -41,11 +41,11 @@ const ContactBar: React.FC = () => {
       </div>
       <style>{`
         .contact-bar {
-          background-color: var(--pure-white);
-          color: var(--pitch-black);
+          background-color: var(--bg-color);
+          color: var(--text-color);
           padding: 80px 0;
-          border-top: 1px solid #f5f5f5;
-          border-bottom: 1px solid #f5f5f5;
+          border-top: 1px solid var(--border-color);
+          border-bottom: 1px solid var(--border-color);
         }
         .contact-flex {
           display: flex;

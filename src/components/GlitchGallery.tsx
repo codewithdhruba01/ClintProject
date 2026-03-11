@@ -21,7 +21,7 @@ const GlitchGallery: React.FC = () => {
       <style>{`
         .glitch-gallery {
           padding: 0;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid var(--border-color);
         }
         .glitch-container {
           display: grid;
@@ -31,7 +31,7 @@ const GlitchGallery: React.FC = () => {
         .glitch-item {
           position: relative;
           overflow: hidden;
-          border-right: 1px solid #eee;
+          border-right: 1px solid var(--border-color);
         }
         .glitch-item img {
           width: 100%;

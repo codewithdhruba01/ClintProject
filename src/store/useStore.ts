@@ -5,6 +5,8 @@ interface AppState {
   setActiveSection: (section: string) => void;
   isNavOpen: boolean;
   toggleNav: () => void;
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
 }
 
 export const useStore = create<AppState>((set) => ({
@@ -12,4 +14,6 @@ export const useStore = create<AppState>((set) => ({
   setActiveSection: (section) => set({ activeSection: section }),
   isNavOpen: false,
   toggleNav: () => set((state) => ({ isNavOpen: !state.isNavOpen })),
+  isDarkMode: false,
+  toggleDarkMode: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
 }));

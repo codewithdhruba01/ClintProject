@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
         }
         .footer-bottom {
           padding: 30px 0;
-          border-top: 1px solid #222;
+          border-top: 1px solid var(--border-color);
           font-size: 11px;
           opacity: 0.4;
           text-align: center;
