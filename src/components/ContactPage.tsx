@@ -58,85 +58,102 @@ const ContactPage: React.FC = () => {
       {/* massage Section */}
       <section className="contact-hero">
         <div className="hero-grid-bg"></div>
-        <div className="container center-text">
-          <div className="label-badge">CONTACT</div>
-          <h1 className="hero-main-title">Let's create something<br />beautiful together.</h1>
-          <p className="hero-sub">We want to hear from you. Let us know how we can help.</p>
-
-          <div className="form-container-wrapper">
-            <div className="form-glow"></div>
-            <div className="form-card">
-              {submitted ? (
-                <div className="success-overlay fade-in">
-                  <div className="check-circle"><Check size={40} /></div>
-                  <h2>Successfully Sent!</h2>
-                  <p>We'll get back to you within 24 hours.</p>
-                </div>
-              ) : (
-                <form className="redesign-form" onSubmit={handleSubmit}>
-                  <h3 className="form-inner-title">Send us a Message</h3>
-                  <div className="input-row">
-                    <User size={18} className="input-icon" />
-                    <input type="text" placeholder="Enter your name" required />
-                  </div>
-                  <div className="input-row">
-                    <Mail size={18} className="input-icon" />
-                    <input type="email" placeholder="Enter your email" required />
-                  </div>
-                  <div className="input-row">
-                    <Phone size={18} className="input-icon" />
-                    <input type="tel" placeholder="Phone number" required />
-                  </div>
-                  <div className="input-row textarea-row">
-                    <Mail size={18} className="input-icon" />
-                    <textarea placeholder="Write your message here..." rows={4} required></textarea>
-                  </div>
-                  <button type="submit" className="redesign-submit">Submit</button>
-
-                  <div className="form-social-icons">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="form-social-btn" aria-label="Instagram">
-                      <InstagramIcon size="20" />
-                    </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="form-social-btn" aria-label="X">
-                      <XIcon size="20" />
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="form-social-btn" aria-label="LinkedIn">
-                      <LinkedinIcon size="20" />
-                    </a>
-                  </div>
-                </form>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Office Info Section */}
-      <section className="office-section">
         <div className="container">
           <div className="center-text">
-            <div className="label-badge-alt">CONTACT INFORMATION</div>
-            <h2 className="section-title-redesign">Come and visit our offices<br />around the world</h2>
+            <div className="label-badge">CONTACT</div>
+            <h1 className="hero-main-title">Let's create something<br />beautiful together.</h1>
+            <p className="hero-sub">We want to hear from you. Let us know how we can help.</p>
           </div>
 
-          <div className="office-grid">
-            <div className="info-card">
-              <div className="large-icon-circle purple">
-                <PhoneCall size={24} />
+          <div className="contact-hero-grid">
+            {/* Left Column: Office info cards stacked vertically */}
+            <div className="contact-info-stack">
+              <motion.div 
+                className="info-card-redesign"
+                whileHover={{ y: -5, x: -3, boxShadow: "11px 11px 0px var(--text-color)" }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <div className="large-icon-circle purple">
+                  <PhoneCall size={24} />
+                </div>
+                <div className="info-card-content">
+                  <span className="info-card-label">Phone</span>
+                  <p className="card-text">(704) 555-0127</p>
+                </div>
+              </motion.div>
+              <motion.div 
+                className="info-card-redesign"
+                whileHover={{ y: -5, x: -3, boxShadow: "11px 11px 0px var(--text-color)" }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <div className="large-icon-circle pink">
+                  <Mail size={24} />
+                </div>
+                <div className="info-card-content">
+                  <span className="info-card-label">Email</span>
+                  <p className="card-text">hi@antonphoto.com</p>
+                </div>
+              </motion.div>
+              <motion.div 
+                className="info-card-redesign"
+                whileHover={{ y: -5, x: -3, boxShadow: "11px 11px 0px var(--text-color)" }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <div className="large-icon-circle yellow">
+                  <MapPin size={24} />
+                </div>
+                <div className="info-card-content">
+                  <span className="info-card-label">Location</span>
+                  <p className="card-text">San Francisco, CA</p>
+                </div>
+              </motion.div>
+
+              <div className="form-social-icons left-align">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="form-social-btn" aria-label="Instagram">
+                  <InstagramIcon size="20" />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="form-social-btn" aria-label="X">
+                  <XIcon size="20" />
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="form-social-btn" aria-label="LinkedIn">
+                  <LinkedinIcon size="20" />
+                </a>
               </div>
-              <p className="card-text">(+67) 0422 332 235</p>
             </div>
-            <div className="info-card">
-              <div className="large-icon-circle pink">
-                <Mail size={24} />
+
+            {/* Right Column: Message form */}
+            <div className="form-container-wrapper">
+              <div className="form-glow"></div>
+              <div className="form-card">
+                {submitted ? (
+                  <div className="success-overlay fade-in">
+                    <div className="check-circle"><Check size={40} /></div>
+                    <h2>Successfully Sent!</h2>
+                    <p>We'll get back to you within 24 hours.</p>
+                  </div>
+                ) : (
+                  <form className="redesign-form" onSubmit={handleSubmit}>
+                    <h3 className="form-inner-title">Send us a Message</h3>
+                    <div className="input-row">
+                      <User size={18} className="input-icon" />
+                      <input type="text" placeholder="Enter your name" required />
+                    </div>
+                    <div className="input-row">
+                      <Mail size={18} className="input-icon" />
+                      <input type="email" placeholder="Enter your email" required />
+                    </div>
+                    <div className="input-row">
+                      <Phone size={18} className="input-icon" />
+                      <input type="tel" placeholder="Phone number" required />
+                    </div>
+                    <div className="input-row textarea-row">
+                      <Mail size={18} className="input-icon" />
+                      <textarea placeholder="Write your message here..." rows={4} required></textarea>
+                    </div>
+                    <button type="submit" className="redesign-submit">Submit</button>
+                  </form>
+                )}
               </div>
-              <p className="card-text">hello@quillow.edu</p>
-            </div>
-            <div className="info-card">
-              <div className="large-icon-circle yellow">
-                <MapPin size={24} />
-              </div>
-              <p className="card-text">San Francisco, CA</p>
             </div>
           </div>
         </div>
@@ -225,18 +242,55 @@ const ContactPage: React.FC = () => {
           opacity: 0.15;
           pointer-events: none;
         }
+        .contact-hero-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 50px;
+          margin-top: 40px;
+          position: relative;
+          z-index: 10;
+          align-items: start;
+        }
+        .contact-info-stack {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+          text-align: left;
+        }
+        .info-card-redesign {
+          background: var(--bg-color);
+          border: 3px solid var(--text-color);
+          border-radius: 20px;
+          padding: 25px 30px;
+          display: flex;
+          align-items: center;
+          gap: 25px;
+          box-shadow: 8px 8px 0px var(--text-color);
+          cursor: pointer;
+        }
+        .info-card-content {
+          display: flex;
+          flex-direction: column;
+        }
+        .info-card-label {
+          font-size: 12px;
+          font-weight: 800;
+          text-transform: uppercase;
+          color: var(--text-muted);
+          margin-bottom: 5px;
+          letter-spacing: 1px;
+        }
         .form-container-wrapper {
           position: relative;
-          max-width: 500px;
-          margin: 0 auto;
+          width: 100%;
         }
         .form-glow {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 600px;
-          height: 600px;
+          width: 500px;
+          height: 500px;
           background: radial-gradient(circle, rgba(230,200,250, 0.45) 0%, transparent 70%);
           z-index: 0;
         }
@@ -248,10 +302,8 @@ const ContactPage: React.FC = () => {
           border-radius: 20px;
           border: 3px solid var(--text-color);
           box-shadow: 8px 8px 0px var(--text-color);
-          margin-bottom: 50px;
-          max-width: 450px;
-          margin-left: auto;
-          margin-right: auto;
+          margin-bottom: 0px;
+          width: 100%;
         }
         .form-inner-title {
           font-size: 22px;
@@ -322,6 +374,10 @@ const ContactPage: React.FC = () => {
           justify-content: center;
           gap: 20px;
           margin-top: 40px;
+        }
+        .form-social-icons.left-align {
+          justify-content: flex-start;
+          margin-top: 30px;
           padding-top: 30px;
           border-top: 1px solid var(--border-color);
         }
@@ -510,9 +566,11 @@ const ContactPage: React.FC = () => {
           margin-bottom: 20px;
         }
 
-        @media (max-width: 900px) {
-          .office-grid {
+        @media (max-width: 1000px) {
+          .contact-hero-grid {
             grid-template-columns: 1fr;
+            max-width: 550px;
+            margin: 40px auto 0;
           }
         }
       `}</style>
