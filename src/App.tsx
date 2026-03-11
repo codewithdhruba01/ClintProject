@@ -45,6 +45,31 @@ const App: React.FC = () => {
     }
   }, [currentView, setActiveSection]);
 
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname;
+      if (path === '/contact') {
+        useStore.getState().setView('contact');
+      } else {
+        useStore.getState().setView('home');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Update URL when currentView changes
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (currentView === 'contact' && path !== '/contact') {
+      window.history.pushState({}, '', '/contact');
+    } else if (currentView === 'home' && path !== '/') {
+      window.history.pushState({}, '', '/');
+    }
+  }, [currentView]);
+
   return (
     <div className="app">
       <Header />
