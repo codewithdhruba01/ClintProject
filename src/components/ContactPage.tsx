@@ -207,9 +207,9 @@ const ContactPage: React.FC = () => {
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, #f0f0f0 1px, transparent 1px);
+          background: linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
           background-size: 15% 100%;
-          opacity: 0.5;
+          opacity: 0.15;
           pointer-events: none;
         }
         .form-container-wrapper {
@@ -224,17 +224,17 @@ const ContactPage: React.FC = () => {
           transform: translate(-50%, -50%);
           width: 600px;
           height: 600px;
-          background: radial-gradient(circle, rgba(230,200,250, 0.5) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(230,200,250, 0.45) 0%, transparent 70%);
           z-index: 0;
         }
         .form-card {
           position: relative;
           z-index: 1;
-          background: #fff;
+          background: var(--bg-color);
           padding: 40px;
           border-radius: 20px;
-          border: 3px solid #000;
-          box-shadow: 8px 8px 0px #000;
+          border: 3px solid var(--text-color);
+          box-shadow: 8px 8px 0px var(--text-color);
           margin-bottom: 50px;
           max-width: 450px;
           margin-left: auto;
@@ -244,19 +244,20 @@ const ContactPage: React.FC = () => {
           font-size: 22px;
           margin-bottom: 30px;
           font-weight: 700;
+          color: var(--text-color);
         }
         .input-row {
           display: flex;
           align-items: center;
           gap: 15px;
-          border: 3px solid #000;
+          border: 3px solid var(--text-color);
           border-radius: 10px;
           padding: 12px 20px;
           margin-bottom: 15px;
-          background: #fff;
+          background: var(--bg-color);
         }
         .input-icon {
-          color: #000;
+          color: var(--text-color);
         }
         .input-row input {
           border: none;
@@ -264,7 +265,7 @@ const ContactPage: React.FC = () => {
           width: 100%;
           font-size: 15px;
           font-family: inherit;
-          color: #000;
+          color: var(--text-color);
           font-weight: 500;
         }
         .input-row textarea {
@@ -287,8 +288,8 @@ const ContactPage: React.FC = () => {
         .redesign-submit {
           width: 100%;
           padding: 18px;
-          background: #dcd0ff;
-          border: 3px solid #000;
+          background: #f8bc05ff;
+          border: 3px solid var(--text-color);
           border-radius: 12px;
           font-weight: 800;
           font-size: 16px;
@@ -296,11 +297,11 @@ const ContactPage: React.FC = () => {
           cursor: pointer;
           transition: all 0.2s ease;
           margin-top: 10px;
-          box-shadow: 6px 6px 0px #000;
+          box-shadow: 6px 6px 0px var(--text-color);
         }
         .redesign-submit:hover {
           transform: translate(-2px, -2px);
-          box-shadow: 8px 8px 0px #000;
+          box-shadow: 8px 8px 0px var(--text-color);
         }
 
         /* Office Section */
@@ -338,7 +339,7 @@ const ContactPage: React.FC = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          border: 2px solid #000;
+          border: 2px solid var(--text-color);
           color: #000;
         }
         .large-icon-circle.purple { background: #dcd0ff; }
@@ -353,7 +354,7 @@ const ContactPage: React.FC = () => {
         .faq-section {
           padding: 60px 0;
           position: relative;
-          background: #fff;
+          background: var(--bg-color);
         }
         .faq-vertical-lines {
           position: absolute;
@@ -361,9 +362,9 @@ const ContactPage: React.FC = () => {
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, #f0f0f0 1px, transparent 1px);
+          background: linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
           background-size: 15% 100%;
-          opacity: 0.5;
+          opacity: 0.15;
           pointer-events: none;
         }
         .faq-title {
@@ -371,7 +372,7 @@ const ContactPage: React.FC = () => {
           line-height: 1.1;
           font-weight: 800;
           margin-bottom: 40px;
-          color: #1a1e2e;
+          color: var(--text-color);
           text-transform: none;
         }
         .faq-list {
@@ -384,20 +385,24 @@ const ContactPage: React.FC = () => {
           z-index: 1;
         }
         .faq-item {
-          border: 3px solid #000;
+          border: 3px solid var(--text-color);
           border-radius: 16px;
           padding: 24px 32px;
           cursor: pointer;
           transition: all 0.2s ease;
-          background: #fff;
-          box-shadow: 6px 6px 0px #000;
+          background: var(--bg-color);
+          box-shadow: 6px 6px 0px var(--text-color);
         }
         .faq-item.open {
           background: #fff4af;
+          color: #000;
+        }
+        .faq-item.open .faq-answer {
+          color: #444;
         }
         .faq-item:hover {
           transform: translate(-2px, -2px);
-          box-shadow: 8px 8px 0px #000;
+          box-shadow: 8px 8px 0px var(--text-color);
         }
         .faq-question {
           display: flex;
@@ -405,24 +410,32 @@ const ContactPage: React.FC = () => {
           align-items: center;
           font-weight: 800;
           font-size: 18px;
+          color: var(--text-color);
+        }
+        .faq-item.open .faq-question {
           color: #1a1e2e;
         }
         .faq-icon-circle {
           width: 24px;
           height: 24px;
           border-radius: 50%;
-          border: 2px solid #000;
+          border: 2px solid var(--text-color);
           display: flex;
           align-items: center;
           justify-content: center;
+          background: var(--bg-color);
+          color: var(--text-color);
+        }
+        .faq-item.open .faq-icon-circle {
           background: #fff;
           color: #000;
+          border-color: #000;
         }
         .faq-answer {
           margin-top: 15px;
           line-height: 1.6;
           font-weight: 500;
-          color: #444;
+          color: var(--text-muted);
           font-size: 15px;
           padding-right: 40px;
         }
