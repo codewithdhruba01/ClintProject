@@ -1,10 +1,17 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
     <section id="about" className="about reveal-on-scroll">
       <div className="container about-grid">
-        <div className="about-label">ABOUT</div>
+        <div className="about-header">
+          <div className="about-label">ABOUT</div>
+          <div className="about-arrow">
+            <div className="line"></div>
+            <ArrowRight size={16} className="arrow-icon" />
+          </div>
+        </div>
         <div className="about-text">
           <p>ANTON, A PHOTOGRAPHER BASED IN JOGJA. WITH OVER 3 YEARS BEHIND THE LENS, MY PASSION IS CAPTURING AUTHENTICITY, <strong>THE RAW LAUGHTER, THE QUIET GLANCES, THE ONCE-IN-A-LIFETIME MOMENTS. I CREATE IMAGES THAT FEEL ALIVE.</strong></p>
         </div>
@@ -20,15 +27,36 @@ const About: React.FC = () => {
           align-items: start;
           gap: 40px;
         }
+        .about-header {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        }
         .about-label {
           font-size: 12px;
           font-weight: 700;
           letter-spacing: 2px;
           color: #ccc;
         }
+        .about-arrow {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          position: relative;
+        }
+        .about-arrow .line {
+          height: 1px;
+          background: #dbdbdb;
+          width: 50px;
+          transition: var(--transition-smooth);
+        }
+        .arrow-icon {
+          color: #dbdbdb;
+          margin-left: -2px;
+        }
         .about-text p {
           font-size: 24px;
-          font-weight: 500;
+          font-weight: 600;
           text-transform: uppercase;
           line-height: 1.2;
           color: #bbb;
