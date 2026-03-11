@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, User, PhoneCall, Plus, Minus, Send, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, User, PhoneCall, Plus, Minus, Check } from 'lucide-react';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +58,7 @@ const ContactPage: React.FC = () => {
       <section className="contact-hero">
         <div className="hero-grid-bg"></div>
         <div className="container center-text">
-          <div className="label-badge">Contact</div>
+          <div className="label-badge">CONTACT</div>
           <h1 className="hero-main-title">Let's create something<br />beautiful together.</h1>
           <p className="hero-sub">We want to hear from you. Let us know how we can help.</p>
 
@@ -79,12 +79,16 @@ const ContactPage: React.FC = () => {
                     <input type="text" placeholder="Enter your name" required />
                   </div>
                   <div className="input-row">
-                    <Phone size={18} className="input-icon" />
-                    <input type="tel" placeholder="Mobile number" required />
+                    <Mail size={18} className="input-icon" />
+                    <input type="email" placeholder="Enter your email" required />
                   </div>
-                  <div className="input-row textarea-row">
-                    <Send size={18} className="input-icon" style={{ alignSelf: 'flex-start', marginTop: '5px' }} />
-                    <textarea placeholder="Enter your message" required rows={4}></textarea>
+                  <div className="input-row">
+                    <User size={18} className="input-icon" />
+                    <input type="text" placeholder="Business name" />
+                  </div>
+                  <div className="input-row">
+                    <Phone size={18} className="input-icon" />
+                    <input type="tel" placeholder="Phone number" required />
                   </div>
                   <button type="submit" className="redesign-submit">Submit</button>
                 </form>
@@ -203,11 +207,9 @@ const ContactPage: React.FC = () => {
           left: 0;
           width: 100%;
           height: 100%;
-          background-image: 
-            linear-gradient(var(--border-color) 1px, transparent 1px),
-            linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
-          background-size: 80px 80px;
-          opacity: 0.1;
+          background: linear-gradient(90deg, #f0f0f0 1px, transparent 1px);
+          background-size: 15% 100%;
+          opacity: 0.5;
           pointer-events: none;
         }
         .form-container-wrapper {
@@ -220,20 +222,23 @@ const ContactPage: React.FC = () => {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 500px;
-          height: 500px;
-          background: radial-gradient(circle, rgba(230,200,250, 0.4) 0%, transparent 70%);
+          width: 600px;
+          height: 600px;
+          background: radial-gradient(circle, rgba(230,200,250, 0.5) 0%, transparent 70%);
           z-index: 0;
         }
         .form-card {
           position: relative;
           z-index: 1;
-          background: var(--bg-color);
+          background: #fff;
           padding: 40px;
-          border-radius: 30px;
-          border: 2px solid var(--text-color);
-          box-shadow: 0 20px 0 var(--text-color);
+          border-radius: 20px;
+          border: 3px solid #000;
+          box-shadow: 8px 8px 0px #000;
           margin-bottom: 50px;
+          max-width: 450px;
+          margin-left: auto;
+          margin-right: auto;
         }
         .form-inner-title {
           font-size: 22px;
@@ -244,15 +249,14 @@ const ContactPage: React.FC = () => {
           display: flex;
           align-items: center;
           gap: 15px;
-          border: 2px solid var(--text-color);
-          border-radius: 12px;
+          border: 3px solid #000;
+          border-radius: 10px;
           padding: 12px 20px;
           margin-bottom: 15px;
-          background: var(--bg-color);
-          box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+          background: #fff;
         }
         .input-icon {
-          color: var(--text-muted);
+          color: #000;
         }
         .input-row input {
           border: none;
@@ -260,7 +264,8 @@ const ContactPage: React.FC = () => {
           width: 100%;
           font-size: 15px;
           font-family: inherit;
-          color: var(--text-color);
+          color: #000;
+          font-weight: 500;
         }
         .input-row textarea {
           border: none;
@@ -283,18 +288,19 @@ const ContactPage: React.FC = () => {
           width: 100%;
           padding: 18px;
           background: #dcd0ff;
-          border: 2px solid var(--text-color);
+          border: 3px solid #000;
           border-radius: 12px;
           font-weight: 800;
           font-size: 16px;
           color: #000;
           cursor: pointer;
-          transition: transform 0.2s ease;
+          transition: all 0.2s ease;
           margin-top: 10px;
+          box-shadow: 6px 6px 0px #000;
         }
         .redesign-submit:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 0 var(--text-color);
+          transform: translate(-2px, -2px);
+          box-shadow: 8px 8px 0px #000;
         }
 
         /* Office Section */
