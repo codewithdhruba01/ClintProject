@@ -44,6 +44,11 @@ const Header: React.FC = () => {
     <header className="header">
       <nav className="nav">
         <div className="nav-container">
+          <div className="nav-logo" onClick={() => handleNavClick('#home')}>
+            <img src="/Logo.svg" alt="Anton Photo Logo" width="32" height="32" />
+            <span className="logo-text">ANTON PHOTO</span>
+          </div>
+
           <ul className="nav-list">
             {navItems.map((item) => (
               <li key={item.name}>
@@ -85,11 +90,27 @@ const Header: React.FC = () => {
           justify-content: space-between;
           align-items: center;
         }
+        .nav-logo {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          cursor: pointer;
+          flex: 0 0 auto;
+        }
+        .logo-text {
+          font-family: var(--font-primary);
+          font-weight: 800;
+          font-size: 18px;
+          letter-spacing: 0.5px;
+          color: var(--text-color);
+          text-transform: uppercase;
+        }
         .nav-list {
           display: flex;
           gap: 40px;
-          flex: 1;
-          justify-content: center;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
         }
         .nav-list li a, .nav-btn-link {
           font-size: 13px;

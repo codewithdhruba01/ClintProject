@@ -33,10 +33,7 @@ const Footer: React.FC = () => {
           <div className="footer-brand-col">
             <div className="brand-logo-glow">
               <div className="logo-svg-placeholder">
-                <svg viewBox="0 0 40 40" width="30" height="30">
-                  <rect width="40" height="40" rx="10" fill="none" stroke="currentColor" strokeWidth="2" />
-                  <path d="M10 20 H30 M20 10 V30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
+                <img src="/Logo.svg" alt="Anton Photo Logo" width="40" height="40" />
               </div>
               <span className="brand-name">ANTON PHOTO</span>
             </div>
@@ -95,8 +92,8 @@ const Footer: React.FC = () => {
             <a href="#">Privacy Policy <ArrowUpRight size={12} className="link-icon" /></a>
             <a href="#">Terms & Conditions <ArrowUpRight size={12} className="link-icon" /></a>
           </div>
-          <div className="bottom-right">
-            <span>Designed by Dhrubaraj Pati</span>
+          <div className="bottom-right social-nav-column">
+            <span>Designed by <a href="https://codewithdhruba.vercel.app/">Dhrubaraj Pati <ArrowUpRight size={12} className="link-icon" /></a></span>
           </div>
         </div>
       </div>
@@ -266,14 +263,14 @@ const Footer: React.FC = () => {
           align-items: center;
         }
 
-        .bottom-left a {
+        .bottom-left a, .bottom-right a {
           transition: 0.3s;
-          display: flex;
+          display: inline-flex;
           align-items: center;
           gap: 4px;
         }
 
-        .bottom-left a:hover {
+        .bottom-left a:hover, .bottom-right a:hover {
           color: #ccff00;
         }
 
