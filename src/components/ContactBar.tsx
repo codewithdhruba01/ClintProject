@@ -23,18 +23,18 @@ const ContactBar: React.FC = () => {
           </div>
         </div>
         <div className="contact-email">{email}</div>
-        <button 
-          className={`contact-status ${copied ? 'copied' : ''}`} 
+        <button
+          className={`contact-status ${copied ? 'copied' : ''}`}
           onClick={handleCopy}
           aria-label="Copy email address"
         >
           {copied ? (
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
             </svg>
           ) : (
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
             </svg>
           )}
         </button>
@@ -46,6 +46,10 @@ const ContactBar: React.FC = () => {
           padding: 80px 0;
           border-top: 1px solid var(--border-color);
           border-bottom: 1px solid var(--border-color);
+        }
+        .dark .contact-bar {
+          border-top-color: #000;
+          border-bottom-color: #000;
         }
         .contact-flex {
           display: flex;
