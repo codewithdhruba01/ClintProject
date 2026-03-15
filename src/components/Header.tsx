@@ -20,8 +20,10 @@ const Header: React.FC = () => {
       window.scrollTo(0, 0);
     } else if (href === '#contact') {
       setView('contact');
+    } else if (href === '#about') {
+      setView('about');
     } else {
-      // For #works, #about - only work on home view
+      // For #works - only work on home view
       if (currentView !== 'home') {
         setView('home');
         // Small delay to allow home content to render before scrolling
@@ -72,7 +74,7 @@ const Header: React.FC = () => {
             {navItems.map((item) => (
               <li key={item.name}>
                 <button 
-                  className={`nav-btn-link ${ (currentView === 'contact' && item.href === '#contact') || (currentView === 'home' && activeSection === item.href.slice(1)) ? 'active' : ''}`}
+                  className={`nav-btn-link ${ (currentView === 'contact' && item.href === '#contact') || (currentView === 'about' && item.href === '#about') || (currentView === 'home' && activeSection === item.href.slice(1)) ? 'active' : ''}`}
                   onClick={() => handleNavClick(item.href)}
                 >
                   {item.name}

@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="footer-bottom-row">
           <div className="bottom-left social-nav-column">
-            <span>Copyrights @ANTONPHOTO 2025</span>
+            <span>© 2026 ANTONPHOTO. All rights reserved.</span>
             <a href="#">Privacy Policy <ArrowUpRight size={12} className="link-icon" /></a>
             <a href="#">Terms & Conditions <ArrowUpRight size={12} className="link-icon" /></a>
           </div>
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
         .zen-footer {
           background-color: #000;
           color: #fff;
-          padding: 100px 0 60px;
+          padding: 100px 0 20px;
           position: relative;
           overflow: hidden;
           font-family: 'Outfit', sans-serif;
@@ -251,7 +251,7 @@ const Footer: React.FC = () => {
         .footer-bottom-row {
           display: flex;
           justify-content: space-between;
-          padding: 40px 0;
+          padding: 20px 0 10px;
           font-size: 14px;
           color: #666;
           font-family: 'Inter', sans-serif;
@@ -314,7 +314,7 @@ const Footer: React.FC = () => {
         }
 
         @media (max-width: 1024px) {
-          .zen-footer { padding: 60px 0 40px; }
+          .zen-footer { padding: 60px 0 20px; }
           .footer-top-row { flex-direction: column; align-items: stretch; }
           .newsletter-title { text-align: left; }
           .newsletter-input-group { min-width: auto; }
@@ -328,7 +328,7 @@ const Footer: React.FC = () => {
 
         @media (max-width: 640px) {
           .container { padding: 0 20px; }
-          .zen-footer { padding: 50px 0 30px; }
+          .zen-footer { padding: 50px 0 20px; }
           .footer-top-row { margin-bottom: 40px; gap: 24px; }
           .cta-title { font-size: 32px; }
           .cta-desc { font-size: 16px; }
@@ -348,7 +348,7 @@ const Footer: React.FC = () => {
             gap: 20px;
             text-align: center;
             align-items: center;
-            padding: 24px 0;
+            padding: 16px 0 0;
             font-size: 12px;
           }
           .bottom-left, .bottom-right {

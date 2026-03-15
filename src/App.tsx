@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import GlitchGallery from './components/GlitchGallery';
-import About from './components/About';
+import AboutPage from './components/AboutPage';
 import FeaturedWorks from './components/FeaturedWorks';
 import Stories from './components/Stories';
 import Testimonials from './components/Testimonials';
@@ -51,6 +51,8 @@ const App: React.FC = () => {
       const path = window.location.pathname;
       if (path === '/contact') {
         useStore.getState().setView('contact');
+      } else if (path === '/about') {
+        useStore.getState().setView('about');
       } else {
         useStore.getState().setView('home');
       }
@@ -65,6 +67,8 @@ const App: React.FC = () => {
     const path = window.location.pathname;
     if (currentView === 'contact' && path !== '/contact') {
       window.history.pushState({}, '', '/contact');
+    } else if (currentView === 'about' && path !== '/about') {
+      window.history.pushState({}, '', '/about');
     } else if (currentView === 'home' && path !== '/') {
       window.history.pushState({}, '', '/');
     }
@@ -78,13 +82,14 @@ const App: React.FC = () => {
           <>
             <Hero />
             <GlitchGallery />
-            <About />
             <FeaturedWorks />
             <Stories />
             <Testimonials />
             <CTA />
             <ContactBar />
           </>
+        ) : currentView === 'about' ? (
+          <AboutPage />
         ) : (
           <ContactPage />
         )}
