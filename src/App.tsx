@@ -11,6 +11,7 @@ import ContactBar from './components/ContactBar';
 import Footer from './components/Footer';
 import { useStore } from './store/useStore';
 import ContactPage from './components/ContactPage';
+import WhatsAppButton from './components/WhatsAppButton';
 
 const App: React.FC = () => {
   const { setActiveSection, isDarkMode, currentView } = useStore();
@@ -101,6 +102,7 @@ const App: React.FC = () => {
         )}
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
