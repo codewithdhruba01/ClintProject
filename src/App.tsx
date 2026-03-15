@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import GlitchGallery from './components/GlitchGallery';
 import AboutPage from './components/AboutPage';
@@ -81,7 +81,7 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
-      <Header />
+      <Navbar />
       <main>
         {currentView === 'home' ? (
           <>

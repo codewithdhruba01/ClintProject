@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useStore } from '../store/useStore';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 
-const Header: React.FC = () => {
+const Navbar: React.FC = () => {
   const { activeSection, setActiveSection, isDarkMode, toggleDarkMode, currentView, setView } = useStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -241,4 +241,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default Navbar;
