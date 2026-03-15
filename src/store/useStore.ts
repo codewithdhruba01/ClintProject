@@ -7,14 +7,14 @@ interface AppState {
   toggleNav: () => void;
   isDarkMode: boolean;
   toggleDarkMode: () => void;
-  currentView: 'home' | 'contact' | 'about';
-  setView: (view: 'home' | 'contact' | 'about') => void;
+  currentView: 'home' | 'contact' | 'about' | 'works';
+  setView: (view: 'home' | 'contact' | 'about' | 'works') => void;
 }
 
 export const useStore = create<AppState>((set) => {
   // Initialize from URL
   const path = typeof window !== 'undefined' ? window.location.pathname : '/';
-  const initialView = path === '/contact' ? 'contact' : path === '/about' ? 'about' : 'home';
+  const initialView = path === '/contact' ? 'contact' : path === '/about' ? 'about' : path === '/works' ? 'works' : 'home';
 
   return {
     activeSection: 'home',

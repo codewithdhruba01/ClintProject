@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import GlitchGallery from './components/GlitchGallery';
 import AboutPage from './components/AboutPage';
-import FeaturedWorks from './components/FeaturedWorks';
+import WorksPage from './components/WorksPage';
 import Stories from './components/Stories';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
@@ -53,6 +53,8 @@ const App: React.FC = () => {
         useStore.getState().setView('contact');
       } else if (path === '/about') {
         useStore.getState().setView('about');
+      } else if (path === '/works') {
+        useStore.getState().setView('works');
       } else {
         useStore.getState().setView('home');
       }
@@ -69,6 +71,8 @@ const App: React.FC = () => {
       window.history.pushState({}, '', '/contact');
     } else if (currentView === 'about' && path !== '/about') {
       window.history.pushState({}, '', '/about');
+    } else if (currentView === 'works' && path !== '/works') {
+      window.history.pushState({}, '', '/works');
     } else if (currentView === 'home' && path !== '/') {
       window.history.pushState({}, '', '/');
     }
@@ -82,7 +86,7 @@ const App: React.FC = () => {
           <>
             <Hero />
             <GlitchGallery />
-            <FeaturedWorks />
+            {/* FeaturedWorks removed as it is now a dedicated page */}
             <Stories />
             <Testimonials />
             <CTA />
@@ -90,6 +94,8 @@ const App: React.FC = () => {
           </>
         ) : currentView === 'about' ? (
           <AboutPage />
+        ) : currentView === 'works' ? (
+          <WorksPage />
         ) : (
           <ContactPage />
         )}
