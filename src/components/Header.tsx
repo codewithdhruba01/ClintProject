@@ -64,14 +64,6 @@ const Header: React.FC = () => {
             <span className="logo-text">ANTON PHOTO</span>
           </div>
 
-          <button
-            className="mobile-menu-btn"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
           <ul className={`nav-list ${mobileMenuOpen ? 'open' : ''}`}>
             {navItems.map((item) => (
               <li key={item.name}>
@@ -85,13 +77,22 @@ const Header: React.FC = () => {
             ))}
           </ul>
           
-          <button 
-            className="theme-toggle" 
-            onClick={toggleDarkMode}
-            aria-label="Toggle theme"
-          >
-            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
+          <div className="nav-actions">
+            <button 
+              className="theme-toggle" 
+              onClick={toggleDarkMode}
+              aria-label="Toggle theme"
+            >
+              {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <button
+              className="mobile-menu-btn"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </nav>
       <style>{`
@@ -153,6 +154,12 @@ const Header: React.FC = () => {
         .nav-list li a:hover, .nav-btn-link:hover {
           color: var(--accent-color);
         }
+        .nav-actions {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          z-index: 1000;
+        }
         .mobile-menu-btn {
           display: none;
           background: none;
@@ -160,6 +167,10 @@ const Header: React.FC = () => {
           color: var(--text-color);
           cursor: pointer;
           padding: 8px;
+          transition: var(--transition-smooth);
+        }
+        .mobile-menu-btn:hover {
+          color: var(--accent-color);
         }
         .theme-toggle {
           background: none;
@@ -182,27 +193,36 @@ const Header: React.FC = () => {
           .nav-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
             z-index: 998;
           }
           .nav-list {
             position: fixed;
             top: 0;
             right: 0;
+            left: auto;
             width: 280px;
             height: 100vh;
             background: var(--header-bg);
             backdrop-filter: blur(20px);
             flex-direction: column;
-            padding: 80px 30px 30px;
-            gap: 20px;
+            padding: 90px 30px 40px;
+            gap: 25px;
             transform: translateX(100%);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             box-shadow: -10px 0 30px rgba(0,0,0,0.1);
             z-index: 999;
           }
           .nav-list.open {
             transform: translateX(0);
+          }
+          .nav-list li a, .nav-btn-link {
+            font-size: 16px;
+            width: 100%;
+            text-align: left;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(150, 150, 150, 0.1);
           }
           .mobile-menu-btn {
             display: flex;
@@ -213,7 +233,8 @@ const Header: React.FC = () => {
 
         @media (max-width: 600px) {
           .nav-container { padding: 0 16px; }
-          .logo-text { font-size: 14px; }
+          .logo-text { font-size: 15px; }
+          .nav-list { width: 250px; }
         }
       `}</style>
     </header>
