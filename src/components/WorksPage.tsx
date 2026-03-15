@@ -127,7 +127,7 @@ const WorksPage: React.FC = () => {
           <button className="works-cta-btn">
             <span className="cta-text">Book a Session</span>
             <span className="cta-circle">
-              <ArrowUpRight size={18} color="#000" />
+              <ArrowUpRight size={18} />
             </span>
           </button>
         </motion.div>
@@ -138,7 +138,8 @@ const WorksPage: React.FC = () => {
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap');
 
         .works-page-wrapper {
-          background-color: #ffffff;
+          background-color: var(--bg-color);
+          color: var(--text-color);
           min-height: 100vh;
           overflow: hidden;
           padding: 80px 0;
@@ -159,24 +160,24 @@ const WorksPage: React.FC = () => {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          background-color: #f5f5f5;
+          background-color: var(--border-color);
           padding: 8px 16px;
           border-radius: 100px;
           font-size: 13px;
           font-weight: 500;
-          color: #333;
+          color: var(--text-color);
           margin-bottom: 30px;
         }
 
         .badge-icon {
-          color: #1a1a1a;
+          color: var(--text-color);
         }
 
         /* Heading */
         .works-main-heading {
           font-size: clamp(36px, 5vw, 64px);
           font-weight: 500;
-          color: #1a1a1a;
+          color: var(--text-color);
           line-height: 1.1;
           margin-bottom: 80px;
           letter-spacing: -2px;
@@ -206,9 +207,10 @@ const WorksPage: React.FC = () => {
         .arc-card {
           width: 260px;
           height: 380px;
-          background: #ffffff;
+          background: var(--bg-color);
           border-radius: 24px;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+          border: 1px solid var(--border-color);
           overflow: hidden;
           position: absolute;
           display: flex;
@@ -243,7 +245,7 @@ const WorksPage: React.FC = () => {
           left: 0;
           width: 100%;
           height: 50%;
-          background: linear-gradient(to top, #ffffff, transparent);
+          background: linear-gradient(to top, var(--bg-color), transparent);
         }
 
         .card-content {
@@ -252,7 +254,7 @@ const WorksPage: React.FC = () => {
           flex-grow: 1;
           display: flex;
           flex-direction: column;
-          background: #ffffff;
+          background: var(--bg-color);
         }
 
         .card-title {
@@ -260,7 +262,7 @@ const WorksPage: React.FC = () => {
           font-style: italic;
           font-weight: 400;
           font-size: 24px;
-          color: #1a1a1a;
+          color: var(--text-color);
           margin-bottom: 8px;
           letter-spacing: -0.5px;
         }
@@ -268,7 +270,7 @@ const WorksPage: React.FC = () => {
         .card-description {
           font-family: 'Inter', sans-serif;
           font-size: 13px;
-          color: #4a4a4a;
+          color: var(--text-muted);
           line-height: 1.5;
           font-weight: 400;
         }
@@ -278,7 +280,7 @@ const WorksPage: React.FC = () => {
           display: flex;
           align-items: center;
           gap: 16px;
-          background-color: #111111;
+          background-color: var(--text-color);
           border: none;
           padding: 8px 8px 8px 24px;
           border-radius: 100px;
@@ -288,7 +290,7 @@ const WorksPage: React.FC = () => {
 
         .works-cta-btn:hover {
           transform: translateY(-2px);
-          background-color: #222222;
+          opacity: 0.9;
         }
 
         .works-cta-btn:active {
@@ -296,7 +298,7 @@ const WorksPage: React.FC = () => {
         }
 
         .cta-text {
-          color: #ffffff;
+          color: var(--bg-color);
           font-size: 15px;
           font-weight: 500;
         }
@@ -304,12 +306,13 @@ const WorksPage: React.FC = () => {
         .cta-circle {
           width: 44px;
           height: 44px;
-          background-color: #ffffff;
+          background-color: var(--bg-color);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           transition: transform 0.3s ease;
+          color: var(--text-color);
         }
 
         .works-cta-btn:hover .cta-circle {
