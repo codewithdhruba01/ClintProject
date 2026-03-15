@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
             <a href="#">Terms & Conditions <ArrowUpRight size={12} className="link-icon" /></a>
           </div>
           <div className="bottom-right social-nav-column">
-            <span>Designed by <a href="https://codewithdhruba.vercel.app/">Dhrubaraj Pati <ArrowUpRight size={12} className="link-icon" /></a></span>
+            <span>Designed by <a href="https://codewithdhruba.in/">Dhrubaraj Pati <ArrowUpRight size={12} className="link-icon" /></a></span>
           </div>
         </div>
       </div>
