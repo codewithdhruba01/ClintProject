@@ -5,41 +5,41 @@ import { ArrowUpRight, Sparkles } from 'lucide-react';
 const WorksPage: React.FC = () => {
   const cards = [
     {
-      title: "Act with confidence",
-      description: "Turn insights into decisions instantly",
-      image: "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=600&auto=format&fit=crop",
+      title: "Candid Expressions",
+      description: "Capturing authentic moments exactly as they unfold naturally",
+      image: "/assets/asthetic.jpg",
       rotation: -12,
       yOffset: 40,
       zIndex: 1,
     },
     {
-      title: "Reason & explain",
-      description: "Clear summaries with transparent reasoning",
-      image: "https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=600&auto=format&fit=crop",
+      title: "Wedding Stories",
+      description: "Documenting the magic and emotion of your perfect day",
+      image: "/assets/wadding1.jpg",
       rotation: -6,
       yOffset: 15,
       zIndex: 2,
     },
     {
-      title: "Gather context",
-      description: "Connect your data, tools, and workflows in one place",
-      image: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600&auto=format&fit=crop",
+      title: "Creative Portraits",
+      description: "Unique perspectives that showcase your true personality",
+      image: "/assets/pexels-trungnguyenphotog-1751682.jpg",
       rotation: 0,
       yOffset: 0,
       zIndex: 3,
     },
     {
-      title: "Understand patterns",
-      description: "I analyzes signals, trends, and relationships",
-      image: "https://images.unsplash.com/photo-1505506874110-6a7a6c9924cb?q=80&w=600&auto=format&fit=crop",
+      title: "Event Highlights",
+      description: "Preserving the atmosphere and energy of every celebration",
+      image: "/assets/wadding2.jpg",
       rotation: 6,
       yOffset: 15,
       zIndex: 2,
     },
     {
-      title: "Recommend actions",
-      description: "Prioritized, actionable suggestions",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop",
+      title: "Editorial Vision",
+      description: "High-end aesthetic shots for brands and magazines",
+      image: "/assets/story_featured.png",
       rotation: 12,
       yOffset: 40,
       zIndex: 1,
@@ -57,7 +57,7 @@ const WorksPage: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <Sparkles size={14} className="badge-icon" />
-          <span>How the Auralis works</span>
+          <span>Beyond the lens</span>
         </motion.div>
 
         {/* Main Heading */}
@@ -67,8 +67,8 @@ const WorksPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          From information to insight —<br/>
-          <span className="heading-italic">effortlessly</span>
+          Turning fleeting moments into —<br/>
+          <span className="heading-italic">forever memories</span>
         </motion.h1>
 
         {/* Overlapping Cards Arc */}
@@ -125,7 +125,7 @@ const WorksPage: React.FC = () => {
           transition={{ duration: 0.6, delay: 1 }}
         >
           <button className="works-cta-btn">
-            <span className="cta-text">See how it works</span>
+            <span className="cta-text">Book a Session</span>
             <span className="cta-circle">
               <ArrowUpRight size={18} color="#000" />
             </span>
