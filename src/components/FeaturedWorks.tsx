@@ -56,7 +56,7 @@ const FeaturedWorks: React.FC = () => {
       <style>{`
         .logo-bar {
           padding: 30px 0;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid var(--border-color);
         }
         .logo-flex {
           display: flex;
@@ -69,8 +69,8 @@ const FeaturedWorks: React.FC = () => {
           font-weight: 700;
         }
         .featured-works {
-          background-color: var(--pitch-black);
-          color: var(--pure-white);
+          background-color: #000000;
+          color: #ffffff;
           padding: 60px 0;
         }
         .works-layout {
@@ -110,7 +110,7 @@ const FeaturedWorks: React.FC = () => {
         }
          .category-arrow {
           margin-right: 10px;
-          color: var(--pure-white);
+          color: #ffffff;
         }
         .fade-in {
           animation: fadeIn 0.8s ease forwards;
@@ -141,6 +141,39 @@ const FeaturedWorks: React.FC = () => {
           background: rgba(0,0,0,0.5);
           padding: 8px 12px;
           backdrop-filter: blur(5px);
+        }
+
+        @media (max-width: 768px) {
+          .logo-bar { padding: 20px 0; overflow-x: auto; }
+          .logo-flex {
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            gap: 32px;
+            min-width: max-content;
+            padding: 0 16px;
+          }
+          .logo-item span { font-size: 14px; }
+          .featured-works { padding: 40px 0; }
+          .works-layout {
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: 0 5%;
+          }
+          .works-sidebar { gap: 20px; }
+          .works-label { font-size: 10px; }
+          .categories { margin-top: 20px; }
+          .category {
+            font-size: 20px;
+            margin-bottom: 12px;
+          }
+          .category-arrow { display: inline; }
+          .works-hero-img img { height: 350px; }
+        }
+
+        @media (max-width: 480px) {
+          .category { font-size: 16px; }
+          .works-hero-img img { height: 280px; }
+          .img-count { bottom: 12px; right: 12px; font-size: 12px; }
         }
       `}</style>
     </>

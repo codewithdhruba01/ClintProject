@@ -188,6 +188,40 @@ const Testimonials: React.FC = () => {
             margin-top: 40px;
           }
         }
+
+        @media (max-width: 600px) {
+          .testimonials {
+            padding: 60px 0;
+          }
+          .testimonials-container {
+            gap: 30px;
+          }
+          .testimonial-header {
+            font-size: clamp(28px, 8vw, 48px);
+            margin-bottom: 24px;
+          }
+          .testimonial-img-wrapper {
+            width: 100%;
+            max-width: 280px;
+            height: 320px;
+            margin: 0 auto;
+          }
+          .testimonials-right {
+            padding-top: 0;
+          }
+          .testimonial-meta { margin-bottom: 24px; }
+          .testimonial-quote {
+            margin-bottom: 30px;
+          }
+          .testimonial-quote p {
+            font-size: 16px;
+            line-height: 1.5;
+          }
+          .testimonials-nav {
+            margin-top: 30px;
+            justify-content: center;
+          }
+        }
       `}</style>
     </section>
   );

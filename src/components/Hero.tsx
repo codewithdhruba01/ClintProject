@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
           position: relative;
           padding: 60px 0 40px;
           text-align: center;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid var(--border-color);
           overflow: hidden;
         }
         .hero-title {
@@ -70,6 +70,50 @@ const Hero: React.FC = () => {
           font-weight: 600;
           letter-spacing: 1px;
           color: var(--text-muted);
+        }
+
+        @media (max-width: 900px) {
+          .hero { padding: 40px 0 30px; }
+          .hero-img-card {
+            width: 100px;
+            height: 140px;
+          }
+          .hero-images { gap: 10px; margin-top: -30px; }
+        }
+
+        @media (max-width: 600px) {
+          .hero { padding: 30px 0 24px; }
+          .hero-title { margin-bottom: -8%; }
+          .hero-images {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: -20px;
+            padding: 0 16px;
+          }
+          .hero-img-card {
+            width: 85px;
+            height: 120px;
+          }
+          .card-1, .card-2, .card-3, .card-4 {
+            transform: none;
+          }
+          .hero-img-card:hover { transform: translateY(-8px) scale(1.03); }
+          .hero-footer-text {
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            padding: 24px 16px 0;
+            font-size: 10px;
+          }
+        }
+
+        @media (max-width: 380px) {
+          .hero-img-card {
+            width: 70px;
+            height: 100px;
+          }
         }
       `}</style>
     </section>

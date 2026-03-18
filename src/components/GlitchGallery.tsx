@@ -21,7 +21,7 @@ const GlitchGallery: React.FC = () => {
       <style>{`
         .glitch-gallery {
           padding: 0;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid var(--border-color);
         }
         .glitch-container {
           display: grid;
@@ -31,7 +31,7 @@ const GlitchGallery: React.FC = () => {
         .glitch-item {
           position: relative;
           overflow: hidden;
-          border-right: 1px solid #eee;
+          border-right: 1px solid var(--border-color);
         }
         .glitch-item img {
           width: 100%;
@@ -55,6 +55,21 @@ const GlitchGallery: React.FC = () => {
           background-size: 10px 100%;
           pointer-events: none;
           opacity: 0.3;
+        }
+
+        @media (max-width: 900px) {
+          .glitch-container {
+            grid-template-columns: repeat(3, 1fr);
+            height: 280px;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .glitch-container {
+            grid-template-columns: repeat(2, 1fr);
+            height: 220px;
+          }
+          .glitch-item:nth-child(5) { grid-column: 1 / -1; }
         }
       `}</style>
     </section>

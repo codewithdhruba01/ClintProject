@@ -20,7 +20,7 @@ const CTA: React.FC = () => {
           align-items: center;
           justify-content: center;
           text-align: center;
-          color: var(--pure-white);
+          color: #ffffff;
           overflow: hidden;
         }
         .cta-overlay {
@@ -63,12 +63,27 @@ const CTA: React.FC = () => {
           text-transform: uppercase;
           background: rgba(255, 255, 255, 0.05);
           backdrop-filter: blur(5px);
+          color: #ffffff;
           transition: var(--transition-smooth);
         }
         .cta-btn:hover {
-          background-color: var(--pure-white);
-          color: var(--pitch-black);
+          background-color: #ffffff;
+          color: #000000;
           transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+          .cta {
+            min-height: 400px;
+            padding: 40px 20px;
+          }
+          .cta-content { width: 100%; }
+          .cta-title { margin-bottom: 20px; }
+          .cta-subtitle { margin-bottom: 30px; font-size: 10px; }
+          .cta-btn {
+            padding: 14px 32px;
+            font-size: 12px;
+          }
         }
       `}</style>
     </section>

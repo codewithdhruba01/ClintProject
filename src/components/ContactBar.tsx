@@ -23,29 +23,33 @@ const ContactBar: React.FC = () => {
           </div>
         </div>
         <div className="contact-email">{email}</div>
-        <button 
-          className={`contact-status ${copied ? 'copied' : ''}`} 
+        <button
+          className={`contact-status ${copied ? 'copied' : ''}`}
           onClick={handleCopy}
           aria-label="Copy email address"
         >
           {copied ? (
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
             </svg>
           ) : (
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
             </svg>
           )}
         </button>
       </div>
       <style>{`
         .contact-bar {
-          background-color: var(--pure-white);
-          color: var(--pitch-black);
+          background-color: var(--bg-color);
+          color: var(--text-color);
           padding: 80px 0;
-          border-top: 1px solid #f5f5f5;
-          border-bottom: 1px solid #f5f5f5;
+          border-top: 1px solid var(--border-color);
+          border-bottom: 1px solid var(--border-color);
+        }
+        .dark .contact-bar {
+          border-top-color: #000;
+          border-bottom-color: #000;
         }
         .contact-flex {
           display: flex;
@@ -116,6 +120,7 @@ const ContactBar: React.FC = () => {
           .contact-arrow { margin: 0 20px; }
         }
         @media (max-width: 768px) {
+          .contact-bar { padding: 50px 0; }
           .contact-flex {
             flex-direction: column;
             gap: 20px;
@@ -126,6 +131,21 @@ const ContactBar: React.FC = () => {
           }
           .contact-email {
             margin-right: 0;
+            font-size: 28px;
+            word-break: break-all;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .contact-bar { padding: 40px 0; }
+          .contact-label { font-size: 12px; }
+          .contact-email {
+            font-size: 22px;
+            letter-spacing: -0.5px;
+          }
+          .contact-status {
+            width: 44px;
+            height: 44px;
           }
         }
       `}</style>
